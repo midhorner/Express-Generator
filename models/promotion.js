@@ -1,7 +1,7 @@
-const mongoose = require("mongoose"); // import mongoose
+const mongoose = require('mongoose'); // import mongoose
 const Schema = mongoose.Schema; // makes short hand to mongoose.Schema function
 
-require("mongoose-currency").loadType(mongoose); // enables new currency type for use in mongoose schemas
+require('mongoose-currency').loadType(mongoose); // enables new currency type for use in mongoose schemas
 const Currency = mongoose.Types.Currency;
 
 const promotionSchema = new Schema({
@@ -27,5 +27,5 @@ const promotionSchema = new Schema({
   },
 });
 
-const Promotion = mongoose.model("Promotion", promotionSchema);
+const Promotion = mongoose.model('Promotion', promotionSchema);
 module.exports = Promotion;

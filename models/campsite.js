@@ -1,7 +1,7 @@
-const mongoose = require("mongoose"); // import mongoose
+const mongoose = require('mongoose'); // import mongoose
 const Schema = mongoose.Schema; // makes short hand to mongoose.Schema function
 
-require("mongoose-currency").loadType(mongoose); // enables new currency type for use in mongoose schemas
+require('mongoose-currency').loadType(mongoose); // enables new currency type for use in mongoose schemas
 const Currency = mongoose.Types.Currency;
 
 // instantiates a new object - first arg (required) object contains definition for schema via its properties; second arg - various configuration options
@@ -64,6 +64,6 @@ const campsiteSchema = new Schema(
 );
 
 // first argument should be capitalized singular of the lower-case plural collection ('campsites'), second arg - schema
-const Campsite = mongoose.model("Campsite", campsiteSchema);
+const Campsite = mongoose.model('Campsite', campsiteSchema);
 
 module.exports = Campsite;

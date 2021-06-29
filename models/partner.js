@@ -1,4 +1,4 @@
-const mongoose = require("mongoose"); // import mongoose
+const mongoose = require('mongoose'); // import mongoose
 const Schema = mongoose.Schema; // makes short hand to mongoose.Schema function
 
 const partnerSchema = new Schema(
@@ -25,6 +25,6 @@ const partnerSchema = new Schema(
   }
 );
 
-const Partner = mongoose.model("Partner", partnerSchema);
+const Partner = mongoose.model('Partner', partnerSchema);
 
 module.exports = Partner;
