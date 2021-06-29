@@ -5,6 +5,8 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const session = require("express-session");
 const FileStore = require("session-file-store")(session);
+const passport = require("passport");
+const authenticate = require("./authenticate");
 
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
@@ -49,21 +51,19 @@ app.use(
   })
 );
 
+app.use(passport.initialize());
+app.use(passport.session());
+
 // this is where we'll add aunthentication - first of the middleware that starts sending responses back to client
 function auth(req, res, next) {
-  console.log(req.session);
-  if (!req.session.user) {
-    const err = new Error("You are not authenticated");
+  console.log(req.user);
+
+  if (!req.user) {
+    const err = new Error("You are not authenticated!");
     err.status = 401;
     return next(err);
   } else {
-    if (req.session.user === "authenticated") {
-      return next();
-    } else {
-      const err = new Error("You are not authenticated");
-      err.status = 401;
-      return next(err);
-    }
+    return next();
   }
 }
 
